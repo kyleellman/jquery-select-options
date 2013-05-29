@@ -8,79 +8,82 @@ Note: These examples assume you have already included jQuery and this plugin.
 
 ### Simple usage
 
-```
-  <script type="text/javascript">
-  $(function() {
-    var options = [
-      { text: 'one', value: 1 },
-      { text: 'two', value: 2 }
-    ];
-  
-    $('select').selectOptions(options);
-  });
-  </script>
-  
-  
-  <select></select>
+```javascript
+$(function() {
+  var options = [
+    { text: 'one', value: 1 },
+    { text: 'two', value: 2 }
+  ];
+
+  $('select').selectOptions(options);
+});
 ```
 
 ### Preselected option
 
-```
-  <script type="text/javascript">
-  $(function() {
-    var options = [
-      { text: 'one', value: 1 },
-      { text: 'two', value: 2 }
-    ];
-  
-    $('select').selectOptions(options, {selected: 2});
-  });
-  </script>
-  
-  
-  <select></select>
+```javascript
+$(function() {
+  var options = [
+    { text: 'one', value: 1 },
+    { text: 'two', value: 2 }
+  ];
+
+  $('select').selectOptions(options, { selected: 2 });
+});
 ```
 
 ### Add a blank option
 
-```
-  <script type="text/javascript">
-  $(function() {
-    var options = [
-      { text: 'one', value: 1 },
-      { text: 'two', value: 2 }
-    ];
-  
-    $('select').selectOptions(options, {includeBlank: 'choose something'});
-  });
-  </script>
-  
-  
-  <select></select>
-```
+```javascript
+$(function() {
+  var options = [
+    { text: 'one', value: 1 },
+    { text: 'two', value: 2 }
+  ];
 
+  $('select').selectOptions(options, { includeBlank: 'choose something' });
+});
+```
 
 ### Optgroups
 
+```javascript
+$(function() {
+  var options = {
+    "Group 1": [
+      { text: 'one', value: 1 },
+      { text: 'two', value: 2}
+    ],
+    "Group 2": [
+      { text: 'three', value: 3 },
+      { text: 'four', value: 4 }
+    ]
+  };
+  
+  $('select').selectOptions(options);
+});
 ```
-<script type="text/javascript">
-  $(function() {
-    var options = {
-      "Group 1": [
-        { text: 'one', value: 1 },
-        { text: 'two', value: 2}
-      ],
-      "Group 2": [
-        { text: 'three', value: 3 },
-        { text: 'four', value: 4 }
-      ]
-    };
-    
-    $('select').selectOptions(options);
-  });
-</script>
 
+### Putting it all together
 
-<select></select>
+```javascript
+$(function() {
+  var options = {
+    "Group 1": [
+      { text: 'one', value: 1 },
+      { text: 'two', value: 2}
+    ],
+    "Group 2": [
+      { text: 'three', value: 3 },
+      { text: 'four', value: 4 }
+    ]
+  };
+  
+  $('select').selectOptions(options, { includeBlank: 'choose something', selected: 3 });
+});
 ```
+
+## Contributing
+I've chosen to write this plugin in Coffeescript and compile it for easy use. If you wish to contribute, please edit the Coffeescript file and compile it into JS before committing.
+
+For directions on how to use Coffeescript, please reference http://coffeescript.org
